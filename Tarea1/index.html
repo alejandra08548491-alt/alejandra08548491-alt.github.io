@@ -1,0 +1,293 @@
+<!DOCTYPE html> <!--Para decir o usar html y la ultima version y no se cierra-->
+<html lang="es"><!--Siempre se pone y podemos colocar una o varias etiqueta, para espanol es y para ingles ing-->
+
+<head>
+    <meta charset="UTF-8" />
+    <!--IMPORTANTE CUANDO SE COLOCAN COSAS EN ESPANOL Este metatag nos ayuda a colocar ñ y tildes-->
+
+    <title>
+        Tarea 1
+    </title>
+
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="https://img.freepik.com/vector-premium/mujer-avatar-mujer-negocios_38295-63.jpg"
+        type="image/jpg">
+    <!--Este ultimo link sirve para agregar una imagen como icono de la ventana usando el enlace de la imagen igualmente se podria cargar una imagen que este dentro del folder-->
+    <base target="_blank"> <!--El base funciona en caso que cargue un vinculo de la pag se abre en una pestana nueva-->
+
+</head>
+
+<body>
+    <main><!--Siempre agregarlo porque es el contenido principal de la pagina-->
+        <div class="tarea"><!--Contenedor de informacion y se puede colocar un nombre-->
+            <img src="images/avatar.png" class="miimagen" alt="Fotografía">
+
+            <h1 class="minombre">
+                Alejandra Solorzano Medrano
+            </h1>
+        </div>
+
+        <div class="agrupaciones">
+            <hgroup>
+                <h2>
+                    asolorzanom@est.utn.ac.cr
+                </h2>
+                <h3>
+                    (506) 8777 7762
+                </h3>
+                <address>
+                    Escrito por:
+                    <a href="index.html">
+                        Alejandra Solorzano
+                    </a>
+                    <br>
+                </address>
+            </hgroup>
+        </div>
+
+        <div class="iframe">
+            <iframe src="https://campus.utn.ac.cr/" width="500" height="500" title="campus">
+            </iframe>
+        </div>
+
+        <div class="listas">
+            <h4> Nombre de personas de UL (lista desordenada) </h4>
+            <ul>
+                <li>
+                    Sofia
+                </li>
+                <li>
+                    Andres
+                </li>
+                <li>
+                    Esteban
+                </li>
+                <li>
+                    Clara
+                </li>
+                <li>
+                    Mariana
+                </li>
+            </ul>
+            <h4> Nombre de personas de OL (lista ordenada)</h4>
+            <ol>
+                <li>
+                    Sofia
+                </li>
+                <li>
+                    Andres
+                </li>
+                <li>
+                    Esteban
+                </li>
+                <li>
+                    Clara
+                </li>
+                <li>
+                    Mariana
+                </li>
+            </ol>
+            <dl>
+                <dt>Litros</dt>
+                <dd>Los libros pueden tener diferente temas</dd>
+            </dl>
+        </div>
+
+        <div class="figure">
+            <figure>
+                <img src="images/controldeplaystation.png" class="miimagenplay"
+                    alt="Fotografía de control de play station" height="400" width="400">
+                <figcaption>
+                    Esta imagen es de un control de playStation.
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="expansible">
+
+            <details>
+                <summary>Haz click para ver el contenido</summary>
+                <p>
+                    Los controles de PlayStation han evolucionado, <br>
+                    destacándose los modelos DualShock (para PS1, PS2, PS3) y <br>
+                    el DualSense (para PS5), que introduce funciones inmersivas <br>
+                    como la respuesta háptica y los gatillos adaptativos. <br>
+                </p>
+            </details>
+
+            <button onclick="miDialog.showModal()">
+                Abrir ventana de dialogo
+            </button>
+
+            <dialog id="miDialog">
+                <p>
+                    Los controles tienen funciones comunes como el botón PS, <br>
+                    joysticks para movimiento, botones de acción y un pad direccional, <br>
+                    cada uno con propósitos específicos en los menús y juegos.<br>
+                </p>
+                <button onclick="miDialog.close()">Cerrar</button>
+            </dialog>
+
+        </div>
+        <div class="etiquetastexto">
+            <pre>
+                Hola, esta es mi
+                pagina web de la Tarea 1,
+                esta es la etiqueta pre.
+            </pre>
+
+            <blockquote>
+                "Esta etiqueta sirve para citado de fuentes, blockquote"
+            </blockquote>
+
+            <q>
+                Esta es la etiqueta q y sirve para citar lo que dice alguien textualmente
+            </q>
+
+            <br>
+            <br>
+
+            <cite>
+                Esta es la etiqueta cite, que nos ayuda citar una obra, articulo, libro, etc
+            </cite>
+            <br>
+
+            <p>
+                <i>La etiqueta abbr ayuda para abreviaturas</i>
+            </p>
+
+            <abbr title="HyperText Markup Language">
+                HTML
+            </abbr>
+
+            <br>
+
+            <p>
+                <dfn
+                    title="Es el código estándar que se utiliza para estructurar y organizar el contenido de las páginas web">
+                    HTML
+                </dfn>
+                <br>
+                <br>
+                <em>
+                    El dfn indica el término que se está definiendo.
+                </em>
+            </p>
+            <p> <strong>
+                    <mark>
+                        Para imprimir en Python se usa
+                    </mark>
+                </strong>
+                <code>
+                    print("Hola")
+                </code>
+                .
+            </p>
+
+            <p>
+                <b>
+                    <small>
+                        Para abrir el archivo, presiona
+                    </small>
+                </b>
+                <kbd>
+                    Ctrl + O
+                </kbd>
+            </p>
+
+            <p>
+                <ins>
+                    El precio anterior del curso era
+                </ins>
+                <del>
+                    50000
+                </del>
+                <sub>
+                    cuesta 68000.
+                </sub>
+            </p>
+            <p>
+                Ejemplo: 10
+                <sup>
+                    3
+                </sup>
+                (diez elevado a la tres) - etiqueta sup
+            </p>
+            <p>
+                Alejandra cumple años el:
+                <time>
+                    08/09/2002
+                </time>
+                Aca usamos la etiquetas time
+            </p>
+
+            <p>
+                Precio un producto usando la etiqueta data:
+                <data value="19.99">
+                    ₡10.500
+                </data>
+            </p>
+
+            <p>
+                Esta es una frase normal, pero la palabra
+                <span style="color: rgb(59, 176, 160); font-weight: bold;">verde menta</span>
+                es un fragmento que hemos destacado.
+            </p>
+        </div>
+
+        <div class="etiquetasdeenlace">
+            <a href="https://campus.utn.ac.cr/">
+                Campus virtual UTN
+            </a>
+            <br>
+
+            <img src="https://www.w3schools.com/html/workplace.jpg" alt="Oficina de ejemplo" usemap="#oficina"
+                width="400" height="379">
+
+            <map name="oficina">
+                <!-- Aca cuando le demos click a la compu va a mostrar una imagen en una nueva pestaña -->
+                <area shape="rect" coords="34,44,270,350" href="images/compu.jpg" alt="Computadora">
+
+                <!-- Aca cuando le demos click a la telefono va a mostrar una imagen en una nueva pestaña  -->
+                <area shape="rect" coords="290,172,333,250" href="images/telefono.jpg" alt="Teléfono">
+
+                <!-- Aca cuando le demos click a la taza de cafe va a mostrar una imagen en una nueva pestaña  -->
+                <area shape="circle" coords="337,300,44" href="images/tazadecafe.jpg" alt="Taza de café">
+            </map>
+        </div>
+
+        <div class="etiquetasdeimagen">
+            <picture>
+                <source src="images/utn.jpg" type="image/jpeg" width="400" height="379">
+                <img src="images/utn.jpg" type="image/jpeg" width="400" height="379">
+            </picture>
+            <br>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" fill="green" />
+            </svg>
+        </div>
+
+        <div class="etiquetasdemultimedia">
+            <audio id="1" src="audio/Audio.ogg" type="audio/ogg">
+            </audio>
+            <button onclick="document.getElementById ('1').play()">
+                <!--Preguntar como pausar el audio-->
+                Reproducir audio
+                </button">
+        </div>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
+            <video src="audio/video.mp4" controls style="position:absolute; top:0; left:0; width:100%; height:100%;"
+                poster="images/mapa UTN campus.jpg"></video>
+        </div>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
+            <iframe src="https://www.youtube.com/embed/s2mvx-KZ8DE?si=99QuqOOZNM3CCo-f"
+                style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen>
+            </iframe>
+            <!--Si tengo problemas al cargar un video de yt tengo que usar https://www.youtube.com/embed/
+            por ejemplo un enlace original seria: https://youtu.be/s2mvx-KZ8DE?si=99QuqOOZNM3CCo-f
+            para que cargue correctamente seria tal que as: https://www.youtube.com/embed/s2mvx-KZ8DE?si=99QuqOOZNM3CCo-f -->
+        </div>
+    </main>
+</body>
+
+</html>
