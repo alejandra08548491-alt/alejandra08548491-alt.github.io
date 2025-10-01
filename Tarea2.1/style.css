@@ -1,0 +1,79 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(102, 156, 255, 1) 100%);
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 15px 5px 15px;
+}
+
+.encabezado {
+    background-color: #668CD4;
+    position: relative;
+    text-align: center;
+    display: flex;
+    /*El display es para darle un posicionamiento u alineacion al contenido*/
+    flex-direction: column;
+    /*Con el flex direction podemos ver la disposicion de las cosas*/
+    border: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /*Para hacer degradaciones en la sombra*/
+
+}
+
+/*.encabezado:hover {
+    background: linear-gradient(45deg, #81C784, #1B5E20);
+    color: white;
+    visibility: hidden;
+}*/
+/*Esta parte funciona cuando el mouse se posiciona encima de la area/boton seleccionado*/
+
+.header__title {
+    color: #ffffff;
+    font-size: 20px;
+    display: flexbox;
+    visibility: visible;
+}
+
+.main-content {
+    background-color: #668CD4;
+    border: #ffffff;
+    border-radius: 15px;
+}
+
+.miimagenutn {
+    margin: 15px 15px 15px 15px;
+    height: 90px;
+    width: 90px;
+    float: left;
+    background-color: beige;
+}
+
+.subtitulo {
+    float: left;
+    top: 15px;
+    left: 15px;
+    z-index: 15;
+}
+
+.informacionGeneral {
+    clear: left;
+    /* Se posiciona debajo de cualquier elemento flotante anterior */
+    z-index: 1;
+    color: #333;
+    font-size: 1rem;
+    /*Es como tener 16px por cada rem, es decir que si hay 2rem son 32px*/
+    line-height: 1.6;
+    /*Es para que se visualice mejor y se lea con mayor claridad*/
+
+}
+
+.acercaContenedor {
+    overflow-y: scroll;
+}
