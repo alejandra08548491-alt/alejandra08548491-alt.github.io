@@ -1,0 +1,168 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(102, 156, 255, 1) 100%);
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 15px 5px 15px;
+}
+
+.encabezado {
+    background-color: #668CD4;
+    position: relative;
+    text-align: center;
+    display: flex;
+    /*El display es para darle un posicionamiento u alineacion al contenido*/
+    flex-direction: column;
+    /*Con el flex direction podemos ver la disposicion de las cosas*/
+    border: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /*Para hacer degradaciones en la sombra*/
+
+}
+
+/*.encabezado:hover {
+    background: linear-gradient(45deg, #81C784, #1B5E20);
+    color: white;
+    visibility: hidden;
+}*/
+/*Esta parte funciona cuando el mouse se posiciona encima de la area/boton seleccionado*/
+
+.tituloEncabezado {
+    color: #ffffff;
+    font-size: 20px;
+    display: flexbox;
+    visibility: visible;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    background-color: #668CD4;
+    border: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+.miimagenutn {
+    margin: 15px 15px 15px 15px;
+    height: 150px;
+    width: 180px;
+    float: left;
+    background-color: beige;
+}
+
+.subtitulo {
+    float: left;
+    top: 15px;
+    left: 15px;
+    z-index: 15;
+    align-self: center;
+}
+
+.informacionGeneral {
+    clear: left;
+    /* Se posiciona debajo de cualquier elemento flotante anterior */
+    z-index: 1;
+    color: #333;
+    font-size: 1rem;
+    /*Es como tener 16px por cada rem, es decir que si hay 2rem son 32px*/
+    line-height: 1.6;
+    /*Es para que se visualice mejor y se lea con mayor claridad*/
+
+}
+
+.acercaContenedor {
+    order: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    /*controla los elementos flexibles en este caso Sirve para que los elementos se bajen a otra línea si no caben en una sola fila*/
+    align-items: center;
+    padding: 10px;
+}
+
+.contenedorAcademico {
+    order: 2;
+    display: flex;
+    flex-flow: column nowrap;
+    /* Dirección vertical, sin envolver */
+    align-items: center;
+    /* Centra horizontalmente los hijos */
+    justify-content: center;
+    /* Centra verticalmente (si hay altura) */
+    padding: 30px;
+}
+
+.ListaSedes {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite múltiples filas */
+    align-content: center;
+    /* Centra todas las filas verticalmente */
+    justify-content: center;
+    /* Centra horizontalmente */
+    gap: 15px;
+    /*Hace espaciado entre cada una de las sedes en este caso*/
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    flex-grow: 1;
+    /*flex-grow: 0 → No crece. Solo ocupa el espacio necesario.
+    flex-grow: 1 → Puede crecer para llenar el espacio disponible.
+    flex-grow: 2, 3... → Crece más que los otros elementos, en proporción*/
+    flex-shrink: 1;
+}
+
+.ListaSedes li {
+    flex: 1 1 0px;
+    /*el flex es para usar flex-grow, flex-shrink y flex-basis
+    en una sola linea y en ese orden*/
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ContenedorCampus {
+    order: 3;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /*flex-shrink: 0 → No se encoge nunca. Siempre mantiene su tamaño.
+    flex-shrink: 1 (valor por defecto) → Puede encogerse si no hay espacio.
+    flex-shrink: 2, 3... → Se encoge más rápido que los demás elementos*/
+    flex-basis: 140px;
+    /*flex-basis define el tamaño base inicial de un elemento antes 
+    de aplicar flex-grow o flex-shrink.*/
+}
+
+.ContenedorMisionVision {
+    order: 4;
+    align-self: flex-start;
+}
+
+.informacionContacto {
+    order: 5;
+    align-self: flex-start;
+}
+
+.mision {
+    align-self: flex-start;
+    /*permite alinear un elemento individual*/
+}
+
+.footer {
+    display: flex;
+    text-align: center;
+}
+
+@media  (max-width: 768px){ /*moviles y tablets*/
+    .body {
+        justify-content: center;
+    }
+}
