@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar-brand {
+  color: black !important; 
+}
+body {
+  background-color: #dcdcdc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* div del body */
+.container-fluid {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 2px solid #555;
+  border-radius: 8px;
+}
+
+/* encabezados */
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #a3c8f9;
+  padding: 15px;
+  border: 1px solid #999;
+  flex-wrap: wrap;
+  border-radius: 8px;
+}
+
+.encabezadoIzquierdo {
+  width: 48%;
+}
+
+.encabezadoIzquierdo img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+header h1 {
+  color: #004080;
+}
+
+header h2 {
+  color: #222;
+}
+
+/* Barra de navegacion (Nav bar) */
+/* Contenedor de la barra de navegación */
+.barraNavegacion {
+  background-color: #4b5c8b;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Estilo de los enlaces dentro de la barra */
+.barraNavegacion a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 0;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+/* Estilo al pasar el mouse sobre los enlaces */
+.barraNavegacion a:hover {
+  text-decoration: underline;
+  text-align: center;
+  background-color: #3a4970;
+}
+
+
+/* cuadro de informacion */
+.informacion {
+  display: flex;
+  gap: 10px;
+  background-color: #c9daf8;
+  padding: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+  border-radius: 8px;
+}
+
+aside {
+  flex: 1;
+  background-color: #a4c2f4;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+main {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+article {
+  background-color: #a4c2f4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.codigo {
+  color: green;
+  font-weight: bold;
+}
+
+/* coleccion de fotos */
+.fotografias {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  display: block;
+}
+
+.fotografias img {
+  width: 100% !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+}
+
+.fotografias #carouselExampleIndicators {
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* pie de foto */
+footer {
+  background-color: #666;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.footerIzquierdo {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  width: 45%;
+  text-align: center;
+}
+
+.footerDerecho {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  width: 45%;
+  text-align: center;
+}
+
+/* Aca lo empezamos a hacer responsivo */
+@media (max-width: 768px) {
+
+  /* encabezado */
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .encabezadoIzquierdo{
+    width: 100%;
+  }
+
+  /* barra de navegacion apilada una abajo de otra */
+  .barraNavegacion ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* colocamos la columna del contenido principal para abajo */
+  .container-fluid {
+    flex-direction: column;
+  }
+
+  /* fotografias apiladas para abajo */
+  .fotografias {
+    max-width: 100%;
+  }
+
+  .fotografias #carouselExampleIndicators {
+    max-width: 100%;
+  }
+
+  /* footer apilado */
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-box {
+    width: 90%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Separación entre secciones */
+  .contenedorPrincipal,
+  .fotografias,
+  footer {
+    margin-top: 10px;
+  }
+}
