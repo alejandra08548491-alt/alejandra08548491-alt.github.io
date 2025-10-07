@@ -1,0 +1,231 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #dcdcdc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* div del body */
+.contenedorPrincipal {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 2px solid #555;
+  border-radius: 8px;
+}
+
+/* encabezados */
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #a3c8f9;
+  padding: 15px;
+  border: 1px solid #999;
+  flex-wrap: wrap;
+  border-radius: 8px;
+}
+
+.encabezadoIzquierdo {
+  width: 48%;
+}
+
+.encabezadoIzquierdo img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.encabezadoDerecho {
+  width: 48%;
+}
+
+header h1 {
+  color: #004080;
+}
+
+header h2 {
+  color: #222;
+}
+
+/* Barra de navegacion (Nav bar) */
+.barraNavegacion {
+  background-color: #4b5c8b;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+.barraNavegacion ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.barraNavegacion a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.barraNavegacion a:hover {
+  text-decoration: underline;
+}
+
+/* cuadro de informacion */
+.informacion {
+  display: flex;
+  gap: 10px;
+  background-color: #c9daf8;
+  padding: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+  border-radius: 8px;
+}
+
+aside {
+  flex: 1;
+  background-color: #a4c2f4;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+main {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+article {
+  background-color: #a4c2f4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.codigo {
+  color: green;
+  font-weight: bold;
+}
+
+/* coleccion de fotos */
+.fotografias {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f2e7;
+  border-radius: 8px;
+}
+
+.fotografias img {
+  width: 15%;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* pie de foto */
+footer {
+  background-color: #666;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.footerIzquierdo {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  width: 45%;
+  text-align: center;
+}
+
+.footerDerecho {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  width: 45%;
+  text-align: center;
+}
+
+/* Aca lo empezamos a hacer responsivo */
+@media (max-width: 768px) {
+
+  /* encabezado */
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .encabezadoIzquierdo,
+  .encabezadoDerecho {
+    width: 100%;
+  }
+
+  /* barra de navegacion apilada una abajo de otra */
+  .barraNavegacion ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .barraNavegacion li {
+    width: 100%;
+    text-align: center;
+    background-color: #4b5c8b;
+    padding: 8px 0;
+    border-radius: 4px;
+  }
+
+  /* colocamos la columna del contenido principal para abajo */
+  .contenedorPrincipal {
+    flex-direction: column;
+  }
+
+  /* fotografias apiladas para abajo */
+  .fotografias {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fotografias img {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
+  /* footer apilado */
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-box {
+    width: 90%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Separación entre secciones */
+  .contenedorPrincipal,
+  .fotografias,
+  footer {
+    margin-top: 10px;
+  }
+}

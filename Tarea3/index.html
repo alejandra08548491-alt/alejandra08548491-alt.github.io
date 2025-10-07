@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Web Responsivo - Tarea 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contenedorPrincipal">
+        <!-- encabezado -->
+        <header>
+            <div class="encabezadoIzquierdo">
+                <img src="images/1.jpg" alt="Logo UTN">
+                <h1>Diseño Web Responsivo</h1>
+                <p>ISW-512 Diseño de Aplicaciones Web</p>
+            </div>
+            <div class="encabezadoDerecho">
+                <h2>Contenido Relacionado</h2>
+                <p>
+                    El diseño web responsivo permite adaptar la apariencia de un sitio a diferentes dispositivos y
+                    tamaños de pantalla.
+                </p>
+            </div>
+        </header>
+
+        <!-- NAV bar / barra de navegacion -->
+        <nav class="barraNavegacion">
+            <ul>
+                <li><a href="#concepto">Concepto</a></li>
+                <li><a href="#viewport">Viewport</a></li>
+                <li><a href="#mediaqueries">Media Queries</a></li>
+            </ul>
+        </nav>
+
+        
+        <div class="informacion">
+            <aside>
+                <h3>Contenido General</h3>
+                <p>
+                    En esta página se presentan los conceptos clave del diseño web responsivo, el funcionamiento del
+                    viewport
+                    y el uso de media queries para adaptar sitios web a diferentes dispositivos.
+                </p>
+            </aside>
+
+            <main>
+                <article id="concepto">
+                    <h2>1. Concepto de Diseño Web Responsivo</h2>
+                    <p>
+                        El <strong>diseño web responsivo</strong> es una técnica que permite que los sitios se adapten
+                        automáticamente
+                        al tamaño de la pantalla del dispositivo. Esto garantiza una experiencia de usuario fluida en
+                        móviles,
+                        tablets y computadoras.
+                    </p>
+                    <p>
+                        <strong>Importancia:</strong> mejora la usabilidad, optimiza el SEO y ofrece una experiencia
+                        coherente.
+                        Los usuarios actuales esperan que un sitio funcione perfectamente en cualquier plataforma.
+                    </p>
+                    <p>
+                        <strong>Principios básicos:</strong> cuadrículas flexibles, imágenes escalables y uso de media
+                        queries.
+                    </p>
+                </article>
+
+                <article id="viewport">
+                    <h2>2. Funcionamiento del Viewport</h2>
+                    <p>
+                        El <strong>viewport</strong> es el área visible de una página web dentro del navegador.
+                        Su configuración se realiza con la siguiente etiqueta:
+                    </p>
+                    <pre><code class="codigo">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                    <p>
+                        Esta línea indica que el contenido debe ajustarse al ancho del dispositivo, evitando que se vea
+                        muy pequeño o se requiera desplazamiento horizontal.
+                    </p>
+                </article>
+
+                <article id="mediaqueries">
+                    <h2>3. CSS3 Media Queries</h2>
+                    <p>
+                        Las <strong>media queries</strong> permiten cambiar los estilos según el tamaño o la orientación
+                        de la pantalla. Se usan para reorganizar elementos y hacer que un sitio sea totalmente
+                        adaptable.
+                    </p>
+                    <pre><code class="codigo">@media (max-width: 768px) {
+  body {
+    background-color: #eef;
+  }
+}</code></pre>
+                    <p>
+                        Con esto, el fondo cambiará de color si el ancho es menor o igual a <strong> 768px</strong>, demostrando cómo se
+                        aplican estilos condicionales.
+                    </p>
+                </article>
+            </main>
+        </div>
+
+        <!-- coleccion de fotos -->
+        <section class="fotografias">
+            <img src="images/2.png" alt="Logo Universidad Tecnica Nacional">
+            <img src="images/3.jpg" alt="Logo Universidad Tecnica Nacional">
+            <img src="images/4.jpg" alt="Logo Universidad Tecnica Nacional">
+            <img src="images/5.png" alt="Logo Universidad Tecnica Nacional">
+        </section>
+
+        <!-- pie de pagina -->
+        <footer>
+            <div class="footerIzquierdo">
+                <p>© 2025 Universidad Tecnica Nacional</p>
+            </div>
+            <div class="footerDerecho">
+                <p>Desarrollado por Alejandra Solorzano</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
