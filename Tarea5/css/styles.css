@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #0056b3;
+}
+
+section {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#textoDOM {
+  font-weight: bold;
+  margin-top: 10px;
+}
