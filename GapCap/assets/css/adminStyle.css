@@ -1,0 +1,163 @@
+/* =====================================================
+   ADMIN PANEL - ESTILOS ESPECIALES (TOTALMENTE RESPONSIVO CON BOOTSTRAP)
+   Sin media queries — todo lo adaptable es Bootstrap
+===================================================== */
+
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, var(--bs-primary), var(--bs-dark));
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Ocultar admin hasta login */
+.login-container { display: block; }
+.admin-panel { display: none; }
+
+/* =====================================================
+   LOGIN CARD
+===================================================== */
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+}
+
+.login-card input {
+    border: 2px solid var(--bs-light);
+    height: 50px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 3px rgba(10, 66, 78, 0.20);
+}
+
+/* =====================================================
+   ADMIN CONTENT
+===================================================== */
+.admin-content {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1300px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+
+/* Titulos */
+.admin-content h2 {
+    color: var(--bs-primary);
+    font-weight: 700;
+}
+
+/* =====================================================
+   TARJETAS DE ESTADÍSTICAS
+===================================================== */
+.card.bg-primary,
+.card.bg-success,
+.card.bg-warning {
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+
+/* =====================================================
+   BOTÓN AGREGAR
+===================================================== */
+.btn-success {
+    background: linear-gradient(135deg, var(--bs-secondary), var(--bs-success));
+    border: none;
+    padding: 0.9rem 1.3rem;
+    border-radius: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: 0.25s;
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+}
+
+/* =====================================================
+   LISTA DE GORRAS
+===================================================== */
+.cap-card {
+    border: 2px solid var(--bs-light);
+    border-radius: 18px;
+    padding: 1rem;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Hover elegante */
+.cap-card:hover {
+    border-color: var(--bs-primary);
+    box-shadow: 0 4px 18px rgba(10,66,78,0.18);
+}
+
+/* Imagen dentro de la card */
+.cap-card img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* =====================================================
+   MODAL ESTILO
+===================================================== */
+.modal-content {
+    border-radius: 20px !important;
+}
+
+.modal-header {
+    background: var(--bs-primary);
+    color: white;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+/* Inputs del modal */
+.modal-body input,
+.modal-body select {
+    border-radius: 12px !important;
+    border: 2px solid var(--bs-light) !important;
+    padding: 10px !important;
+}
+
+.modal-body input:focus,
+.modal-body select:focus {
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 0 0 3px rgba(10,66,78,0.2) !important;
+}
+
+/* Botones modal */
+.modal-footer button {
+    border-radius: 12px;
+}
+
+/* =====================================================
+   ANIMACIONES (NO MEDIA QUERIES)
+===================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

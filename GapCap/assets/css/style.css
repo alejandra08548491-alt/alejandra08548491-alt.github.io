@@ -198,6 +198,119 @@ h1, h2, h3, h4, h5, h6 {
     padding: 100px 0 50px 0;
 }
 
+/* Barra de búsqueda */
+.search-bar {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bs-primary);
+    font-size: 1.2rem;
+    z-index: 10;
+}
+
+.search-input {
+    padding-left: 45px;
+    padding-right: 45px;
+    height: 50px;
+    border: 2px solid var(--bs-light);
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(10, 66, 78, 0.15);
+}
+
+.btn-clear {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: var(--bs-light);
+    color: var(--bs-dark);
+}
+
+.btn-clear:hover {
+    background: var(--bs-primary);
+    color: white;
+}
+
+/* Filtros colapsables */
+.filter-header {
+    background: var(--bs-light);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--bs-light);
+}
+
+.filter-header:hover {
+    background: rgba(10, 66, 78, 0.05);
+    border-color: rgba(10, 66, 78, 0.2);
+    box-shadow: 0 2px 8px rgba(10, 66, 78, 0.08);
+}
+
+.filter-header h5 {
+    color: var(--bs-primary);
+}
+
+.filter-header .toggle-icon {
+    color: var(--bs-primary);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.filter-header .toggle-icon.rotate {
+    transform: rotate(180deg);
+}
+
+.filter-content {
+    background: white;
+    padding: 1.5rem;
+    border: 2px solid var(--bs-light);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    margin-top: -12px;
+    animation: slideDown 0.3s ease-out;
+}
+
+#filtrosActivos {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .cap-section .product-item {
     border-radius: 12px;
     background: var(--bs-light);

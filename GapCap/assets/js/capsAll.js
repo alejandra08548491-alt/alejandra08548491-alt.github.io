@@ -1,17 +1,56 @@
 let caps = [];
 let capsFiltradas = [];
 
-// Cargar caps desde JSON
+// Cargar caps desde Supabase
 async function cargarCaps() {
-    const res = await fetch("assets/datosJson/caps.json");
-    const data = await res.json();
-    caps = data.caps;
-    capsFiltradas = [...caps];
-    renderizarCaps();
+    const contenedor = document.getElementById('cap-container');
+    
+    // Mostrar loading
+    contenedor.innerHTML = '<div class="col-12 text-center py-5"><div class="spinner-border text-primary"></div><p class="mt-3">Cargando gorras...</p></div>';
+    
+    try {
+        // Cargar desde Supabase
+        caps = await obtenerGorras();
+        capsFiltradas = [...caps];
+        renderizarCaps();
+    } catch (error) {
+        console.error('Error al cargar gorras:', error);
+        contenedor.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-exclamation-triangle text-danger" style="font-size: 4rem;"></i>
+                <p class="text-muted mt-3">Error al cargar las gorras. Por favor recarga la página.</p>
+            </div>`;
+    }
 }
 
-// Aplicar filtros y ordenamiento
-function aplicarFiltros() {
+// Toggle filtros colapsables
+function toggleFiltros() {
+    const filterContent = document.getElementById('filterContent');
+    const toggleIcon = document.getElementById('toggleIcon');
+    
+    if (filterContent.style.display === 'none') {
+        filterContent.style.display = 'block';
+        toggleIcon.classList.add('rotate');
+    } else {
+        filterContent.style.display = 'none';
+        toggleIcon.classList.remove('rotate');
+    }
+}
+
+// Buscar por nombre
+function buscarPorNombre(texto) {
+    const busqueda = texto.toLowerCase().trim();
+    const btnLimpiar = document.getElementById('btnLimpiarBusqueda');
+    
+    if (busqueda === '') {
+        btnLimpiar.style.display = 'none';
+        aplicarFiltros();
+        return;
+    }
+    
+    btnLimpiar.style.display = 'block';
+    
+    // Aplicar búsqueda sobre los resultados ya filtrados
     const categoria = document.getElementById("filtroCategoria").value;
     const estilo = document.getElementById("filtroEstilo").value;
     const orden = document.getElementById("ordenar").value;
@@ -28,6 +67,11 @@ function aplicarFiltros() {
         capsFiltradas = capsFiltradas.filter(cap => cap.estilo === estilo);
     }
 
+    // Filtrar por búsqueda de nombre
+    capsFiltradas = capsFiltradas.filter(cap => 
+        cap.nombre.toLowerCase().includes(busqueda)
+    );
+
     // Ordenar
     if (orden === "nombre") {
         capsFiltradas.sort((a, b) => a.nombre.localeCompare(b.nombre));
@@ -40,6 +84,65 @@ function aplicarFiltros() {
     renderizarCaps();
 }
 
+// Aplicar filtros y ordenamiento
+function aplicarFiltros() {
+    const categoria = document.getElementById("filtroCategoria").value;
+    const estilo = document.getElementById("filtroEstilo").value;
+    const orden = document.getElementById("ordenar").value;
+    const busqueda = document.getElementById("buscarGorra").value.toLowerCase().trim();
+
+    // Filtrar por categoría
+    if (categoria === "todos") {
+        capsFiltradas = [...caps];
+    } else {
+        capsFiltradas = caps.filter(cap => cap.categoria === categoria);
+    }
+
+    // Filtrar por estilo
+    if (estilo !== "todos") {
+        capsFiltradas = capsFiltradas.filter(cap => cap.estilo === estilo);
+    }
+
+    // Filtrar por búsqueda si hay texto
+    if (busqueda !== '') {
+        capsFiltradas = capsFiltradas.filter(cap => 
+            cap.nombre.toLowerCase().includes(busqueda)
+        );
+    }
+
+    // Ordenar
+    if (orden === "nombre") {
+        capsFiltradas.sort((a, b) => a.nombre.localeCompare(b.nombre));
+    } else if (orden === "precioAsc") {
+        capsFiltradas.sort((a, b) => a.precio - b.precio);
+    } else if (orden === "precioDesc") {
+        capsFiltradas.sort((a, b) => b.precio - a.precio);
+    }
+
+    renderizarCaps();
+    actualizarBadgeFiltros();
+}
+
+// Actualizar badge de filtros activos
+function actualizarBadgeFiltros() {
+    const categoria = document.getElementById("filtroCategoria").value;
+    const estilo = document.getElementById("filtroEstilo").value;
+    const busqueda = document.getElementById("buscarGorra").value.trim();
+    
+    let count = 0;
+    if (categoria !== "todos") count++;
+    if (estilo !== "todos") count++;
+    if (busqueda !== "") count++;
+    
+    const badge = document.getElementById("filtrosActivos");
+    if (count > 0) {
+        badge.textContent = count;
+        badge.style.display = 'inline-block';
+    } else {
+        badge.style.display = 'none';
+    }
+}
+
 // Renderizar caps en la sección #cap-container
 function renderizarCaps() {
     const contenedor = document.getElementById("cap-container");
@@ -49,7 +152,7 @@ function renderizarCaps() {
             <div class="col-12 text-center py-5">
                 <i class="bi bi-search text-muted" style="font-size: 4rem;"></i>
                 <p class="text-muted mt-3 fs-5">No se encontraron gorras con estos filtros</p>
-                <button class="btn btn-primary" onclick="limpiarFiltros()">Ver todas las gorras</button>
+                <button class="btn btn-primary" onclick="limpiarTodo()">Ver todas las gorras</button>
             </div>`;
         return;
     }
@@ -61,7 +164,7 @@ function renderizarCaps() {
         <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
             <div class="product-item border rounded p-2 h-100 shadow-sm">
                 <div class="product-image text-center mb-2">
-                    <img src="${cap.imagen}" alt="${cap.nombre}" class="img-fluid rounded">
+                    <img src="${cap.imagen}" alt="${cap.nombre}" class="img-fluid rounded" onerror="this.src='assets/img/gorraTest.jpg'">
                 </div>
                 <div class="product-body">
                     <h5 class="text-primary fw-semibold">
@@ -69,7 +172,7 @@ function renderizarCaps() {
                             ${cap.nombre}
                         </a>
                     </h5>
-                    <p class="small text-muted mb-1">${cap.presentacion ? cap.presentacion : cap.estilo}</p>
+                    <p class="small text-muted mb-1">${cap.estilo}</p>
                     <span class="price text-success fw-bold">¢${cap.precio.toLocaleString("es-CR")}</span>
                 </div>
                 <div class="product-footer d-flex justify-content-between align-items-center mt-2">
@@ -105,6 +208,20 @@ function limpiarFiltros() {
     aplicarFiltros();
 }
 
+// Limpiar búsqueda
+function limpiarBusqueda() {
+    document.getElementById("buscarGorra").value = "";
+    document.getElementById("btnLimpiarBusqueda").style.display = "none";
+    aplicarFiltros();
+}
+
+// Limpiar todo (búsqueda y filtros)
+function limpiarTodo() {
+    document.getElementById("buscarGorra").value = "";
+    document.getElementById("btnLimpiarBusqueda").style.display = "none";
+    limpiarFiltros();
+}
+
 // Agregar cap al carrito
 function agregarCap(id) {
     const cap = caps.find(c => c.id === id);
@@ -127,11 +244,9 @@ function verDetalle(id) {
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="${cap.imagen}" alt="${cap.nombre}" class="img-fluid mb-3 rounded">
-                    ${cap.tipo ? `<p><strong>Tipo:</strong> ${cap.tipo}</p>` : ""}
+                    <img src="${cap.imagen}" alt="${cap.nombre}" class="img-fluid mb-3 rounded" onerror="this.src='assets/img/gorraTest.jpg'">
                     <p><strong>Categoría:</strong> ${cap.categoria.charAt(0).toUpperCase() + cap.categoria.slice(1)}</p>
                     <p><strong>Estilo:</strong> ${cap.estilo.charAt(0).toUpperCase() + cap.estilo.slice(1)}</p>
-                    ${cap.descripcion ? `<p>${cap.descripcion}</p>` : ""}
                     <h4 class="text-success">¢${cap.precio.toLocaleString("es-CR")}</h4>
                     <p><strong>Stock:</strong> ${cap.stock} unidades</p>
                 </div>
@@ -157,10 +272,25 @@ function verDetalle(id) {
     });
 }
 
-// Event listeners para los filtros
+// Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Cargar caps
     cargarCaps();
+
+    // Listener para búsqueda
+    const inputBuscar = document.getElementById("buscarGorra");
+    if (inputBuscar) {
+        inputBuscar.addEventListener("input", function(e) {
+            buscarPorNombre(e.target.value);
+            actualizarBadgeFiltros();
+        });
+    }
+
+    // Listener para botón de limpiar búsqueda
+    const btnLimpiar = document.getElementById("btnLimpiarBusqueda");
+    if (btnLimpiar) {
+        btnLimpiar.addEventListener("click", limpiarBusqueda);
+    }
 
     // Listeners para filtros
     const filtroCategoria = document.getElementById("filtroCategoria");
